@@ -35,18 +35,15 @@ public class UserController {
     }
 
     @PostMapping("/search")
-    public ModelAndView searchResult(@RequestParam(value = "id") long id,
+    public ModelAndView updateSearchResult(@RequestParam(value = "id") long id,
             @RequestParam(value = "name") String name,
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password) {
-        User user = new User();
-        userDao.deleteById(id);
+        User user = userDao.findById(id).get();
         user.setEmail(email);
         user.setName(name);
         user.setPassword(password);
         userDao.save(user);
         return new ModelAndView("display", "user", user);
     }
-
-
 }
