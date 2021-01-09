@@ -6,10 +6,13 @@
     <title>Find User</title>
 </head>
 <body>
-    <!-- <form action="search" method="get">
+    <form action="search" method="post">
         Employee ID : <input type="text" name="id">
+        <hr>
+        New Name : <input type="text" name="name">
+        New Email : <input type="text" name="email">
+        New Password : <input type="password" name="password">
         <input type="submit" value="Search">
-    </form> -->
-    i do
+    </form>
 </body>
 </html>
