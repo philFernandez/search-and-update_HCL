@@ -40,10 +40,13 @@ public class UserController {
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password) {
         User user = userDao.findById(id).get();
-        if (name != "") user.setName(name);
-        if (email != "") user.setEmail(email);
-        if (password != "") user.setPassword(password);
+        if (isNotEmpty(name)) user.setName(name);
+        if (isNotEmpty(email)) user.setEmail(email);
+        if (isNotEmpty(password)) user.setPassword(password);
         userDao.save(user);
         return new ModelAndView("display", "user", user);
+    }
+    private boolean isNotEmpty(String s) {
+        return s != "";
     }
 }
