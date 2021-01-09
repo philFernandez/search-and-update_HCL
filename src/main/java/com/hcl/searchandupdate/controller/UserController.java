@@ -32,7 +32,6 @@ public class UserController {
 
     @GetMapping("/update")
     public ModelAndView searchUser() {
-        // User user;
         return new ModelAndView("search", "user", new User());
     }
 
@@ -48,6 +47,4 @@ public class UserController {
         List<User> users = userService.getAllUsers();
         return new ModelAndView("listUsers", "users", users);
     }
-
-
 }
