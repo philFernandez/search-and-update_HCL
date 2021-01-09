@@ -1,12 +1,11 @@
 package com.hcl.searchandupdate.controller;
 
-import java.util.Map;
 import com.hcl.searchandupdate.dao.UserDao;
 import com.hcl.searchandupdate.entity.User;
+import com.hcl.searchandupdate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,11 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserDao userDao;
+    private UserService userService;
 
     @PostMapping("/add")
-    public String newUser(User u) {
-        userDao.save(u);
+    public String newUser(User user) {
+        userService.saveUser(user);
         return ("redirect:/user/search");
     }
 
@@ -39,14 +38,7 @@ public class UserController {
             @RequestParam(value = "name") String name,
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password) {
-        User user = userDao.findById(id).get();
-        if (isNotEmpty(name)) user.setName(name);
-        if (isNotEmpty(email)) user.setEmail(email);
-        if (isNotEmpty(password)) user.setPassword(password);
-        userDao.save(user);
+        User user = userService.updateUser(id, name, email, password);
         return new ModelAndView("display", "user", user);
-    }
-    private boolean isNotEmpty(String s) {
-        return s != "";
     }
 }
