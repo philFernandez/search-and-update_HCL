@@ -7,6 +7,7 @@ import com.hcl.searchandupdate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,16 +31,15 @@ public class UserController {
     }
 
     @GetMapping("/update")
-    public String searchUser() {
-        return "search";
+    public ModelAndView searchUser() {
+        // User user;
+        return new ModelAndView("search", "user", new User());
     }
 
     @PostMapping("/update")
-    public String updateSearchResult(@RequestParam(value = "id") long id,
-            @RequestParam(value = "name") String name,
-            @RequestParam(value = "email") String email,
-            @RequestParam(value = "password") String password) {
-        userService.updateUser(id, name, email, password);
+    public String updateUser(@ModelAttribute("user") User user) {
+        userService.updateUser(user.getId(), user.getName(), user.getEmail(),
+                user.getPassword());
         return ("redirect:/user/list");
     }
 
@@ -49,5 +49,5 @@ public class UserController {
         return new ModelAndView("listUsers", "users", users);
     }
 
-    
+
 }

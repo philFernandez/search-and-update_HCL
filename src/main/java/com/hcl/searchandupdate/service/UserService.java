@@ -22,6 +22,12 @@ public class UserService {
         userDao.save(user);
     }
 
+    public void updateUser(User updatedUserData) {
+        User user = userDao.findById(updatedUserData.getId()).get();
+        user = updatedUserData;
+        userDao.save(user);
+    }
+
     public void saveUser(User user) {
         userDao.save(user);
     }

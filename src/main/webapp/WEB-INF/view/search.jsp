@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +9,27 @@
     <title>Find User</title>
 </head>
 <body>
-    <form action="update" method="post">
+    <!-- <form action="update" method="post">
         Employee ID : <input type="text" name="id">
         <hr>
         New Name : <input type="text" name="name">
         New Email : <input type="text" name="email">
         New Password : <input type="password" name="password">
         <input type="submit" value="Search">
-    </form>
+    </form> -->
+    <div align="center">
+        <h1>Update User</h1>
+        <form:form action="update" method="post" modelAttribute="user">
+            <form:label path="id">User ID:</form:label>
+            <form:input path="id" /> <hr>
+            <form:label path="name">User Name:</form:label>
+            <form:input path="name" /> <br>
+            <form:label path="email">User Email:</form:label>
+            <form:input path="email" /> <br>
+            <form:label path="password">User Password:</form:label>
+            <form:password path="password" /> <br>
+            <form:button>Update</form:button>
+        </form:form>
+    </div>
 </body>
 </html>
