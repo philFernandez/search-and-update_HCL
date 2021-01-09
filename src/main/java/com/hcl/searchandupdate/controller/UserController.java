@@ -29,4 +29,10 @@ public class UserController {
         return new ModelAndView("adduser", "user", new User());
     }
 
+    @GetMapping("/search")
+    public String searchUser() {
+        return "search";
+    }
+
+
 }
