@@ -1,5 +1,6 @@
 package com.hcl.searchandupdate.controller;
 
+import java.util.Map;
 import com.hcl.searchandupdate.dao.UserDao;
 import com.hcl.searchandupdate.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,18 +26,7 @@ public class UserController {
 
     @GetMapping("/add")
     public ModelAndView addNewUser() {
-        User u = new User();
-        return new ModelAndView("adduser", "userform", u);
+        return new ModelAndView("adduser", "user", new User());
     }
 
-    @GetMapping("/search")
-    public ModelAndView searchUser() {
-        return new ModelAndView("search", "editform", null);
-    }
-
-    @PostMapping("/search/{id}")
-    public ModelAndView searchResult(@PathVariable("id") long id)  {
-        User u = userDao.findById(id).get();
-        return new ModelAndView("search", "editform", u);
-    }
 }

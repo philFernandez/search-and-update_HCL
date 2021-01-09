@@ -8,7 +8,7 @@
 </head>
 <html>
     <body>
-        <form:form modelAttribute="userform">
+        <form:form modelAttribute="user">
             <form:errors path="" element="div" />
             <div>
                 <form:label path="name">User Name</form:label>
