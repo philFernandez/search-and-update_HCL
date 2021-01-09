@@ -1,5 +1,6 @@
 package com.hcl.searchandupdate.controller;
 
+import java.util.List;
 import com.hcl.searchandupdate.dao.UserDao;
 import com.hcl.searchandupdate.entity.User;
 import com.hcl.searchandupdate.service.UserService;
@@ -20,7 +21,7 @@ public class UserController {
     @PostMapping("/add")
     public String newUser(User user) {
         userService.saveUser(user);
-        return ("redirect:/user/search");
+        return ("redirect:/user/list");
     }
 
     @GetMapping("/add")
@@ -41,4 +42,12 @@ public class UserController {
         User user = userService.updateUser(id, name, email, password);
         return new ModelAndView("display", "user", user);
     }
+
+    @GetMapping("/list")
+    public ModelAndView listUsers() {
+        List<User> users = userService.getAllUsers();
+        return new ModelAndView("listUsers", "users", users);
+    }
+
+    
 }
