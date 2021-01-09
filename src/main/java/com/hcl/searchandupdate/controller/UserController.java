@@ -40,9 +40,9 @@ public class UserController {
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password) {
         User user = userDao.findById(id).get();
-        user.setEmail(email);
-        user.setName(name);
-        user.setPassword(password);
+        if (name != "") user.setName(name);
+        if (email != "") user.setEmail(email);
+        if (password != "") user.setPassword(password);
         userDao.save(user);
         return new ModelAndView("display", "user", user);
     }
