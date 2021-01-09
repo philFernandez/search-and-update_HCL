@@ -29,18 +29,18 @@ public class UserController {
         return new ModelAndView("adduser", "user", new User());
     }
 
-    @GetMapping("/search")
+    @GetMapping("/update")
     public String searchUser() {
         return "search";
     }
 
-    @PostMapping("/search")
-    public ModelAndView updateSearchResult(@RequestParam(value = "id") long id,
+    @PostMapping("/update")
+    public String updateSearchResult(@RequestParam(value = "id") long id,
             @RequestParam(value = "name") String name,
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password) {
-        User user = userService.updateUser(id, name, email, password);
-        return new ModelAndView("display", "user", user);
+        userService.updateUser(id, name, email, password);
+        return ("redirect:/user/list");
     }
 
     @GetMapping("/list")

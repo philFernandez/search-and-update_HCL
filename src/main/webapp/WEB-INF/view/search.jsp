@@ -6,7 +6,7 @@
     <title>Find User</title>
 </head>
 <body>
-    <form action="search" method="post">
+    <form action="update" method="post">
         Employee ID : <input type="text" name="id">
         <hr>
         New Name : <input type="text" name="name">
