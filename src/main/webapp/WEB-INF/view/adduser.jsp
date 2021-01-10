@@ -8,26 +8,36 @@
 </head>
 <html>
     <body>
+        <h1>Enter User Information</h1>
         <form:form modelAttribute="user">
-            <form:errors path="" element="div" />
-            <div>
-                <form:label path="name">User Name</form:label>
-                <form:input path="name" />
-                <form:errors path="name" />
-            </div>
-            <div>
-                <form:label path="email">User Email</form:label>
-                <form:input path="email" />
-                <form:errors path="email" />
-            </div>
-            <div>
-                <form:label path="password">User Password</form:label>
-                <form:password path="password" />
-                <form:errors path="password" />
-            </div>
-            <div>
-                <input type="submit" value="Add User">
-            </div>
+            <table>
+                    <form:errors path="" element="td" />
+                    <tr>
+                        <td>
+                            <form:label path="name">User Name</form:label>
+                        </td>
+                        <td>
+                            <form:input path="name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form:label path="email">User Email</form:label>
+                        </td>
+                        <td>
+                            <form:input path="email" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form:label path="password">User Password</form:label>
+                        </td>
+                        <td>
+                            <form:password path="password" />
+                        </td>
+                    </tr>
+            </table>
+            <input type="submit" value="Add User">
         </form:form>
     </body>
 </html>
