@@ -12,14 +12,40 @@
         <div align="center">
             <h1>Update User</h1>
             <form:form action="update" method="post" modelAttribute="user">
-                <form:label path="id">User ID:</form:label>
-                <form:input value="" path="id" /> <hr>
-                <form:label path="name">User Name:</form:label>
-                <form:input path="name" /> <br>
-                <form:label path="email">User Email:</form:label>
-                <form:input path="email" /> <br>
-                <form:label path="password">User Password:</form:label>
-                <form:password path="password" /> <br>
+                <table>
+                    <tr>
+                        <td>
+                            <form:label path="id">User ID:</form:label>
+                        </td>
+                        <td>
+                            <form:input value="" path="id" required="required" /> <hr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form:label path="name">User Name:</form:label>
+                        </td>
+                        <td>
+                            <form:input path="name" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form:label path="email">User Email:</form:label>
+                        </td>
+                        <td>
+                            <form:input path="email" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form:label path="password">User Password:</form:label>
+                        </td>
+                        <td>
+                            <form:password path="password" />
+                        </td>
+                    </tr>
+                </table>
                 <form:button>Update</form:button>
             </form:form>
         </div>
