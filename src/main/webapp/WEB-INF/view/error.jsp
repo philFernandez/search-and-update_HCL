@@ -6,10 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/errStyle.css">
     <title>Error</title>
 </head>
 <body>
-    ass shit fuck
+    <table>
+        <th>Error</th>
+        <tr>
+            <td>${message}</td>
+        </tr>
+    </table>
+    <br><br><hr>
+    <a href="list"><button>Go Back</button></a>
 </body>
 </html>
 

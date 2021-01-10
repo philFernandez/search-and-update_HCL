@@ -1,0 +1,16 @@
+table {
+    border: 1px solid white;
+    border-collapse: collapse;
+    color: white;
+    background-color: darkred;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: red;
+    color: black;
+}
