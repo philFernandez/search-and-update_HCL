@@ -25,7 +25,7 @@
                             <form:label path="email">User Email</form:label>
                         </td>
                         <td>
-                            <form:input path="email" />
+                            <form:input path="email" type="email" />
                         </td>
                     </tr>
                     <tr>
