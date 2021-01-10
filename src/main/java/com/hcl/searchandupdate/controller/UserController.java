@@ -1,7 +1,6 @@
 package com.hcl.searchandupdate.controller;
 
 import java.util.List;
-import com.hcl.searchandupdate.dao.UserDao;
 import com.hcl.searchandupdate.entity.User;
 import com.hcl.searchandupdate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -47,4 +45,10 @@ public class UserController {
         List<User> users = userService.getAllUsers();
         return new ModelAndView("listUsers", "users", users);
     }
+
+    @GetMapping("/error")
+    public String handleError() {
+        return "error";
+    }
+
 }
