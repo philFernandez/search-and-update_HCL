@@ -8,36 +8,38 @@
 </head>
 <html>
     <body>
-        <h1>Enter User Information</h1>
-        <form:form modelAttribute="user">
-            <table>
-                    <form:errors path="" element="td" />
-                    <tr>
-                        <td>
-                            <form:label path="name">User Name</form:label>
-                        </td>
-                        <td>
-                            <form:input path="name" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <form:label path="email">User Email</form:label>
-                        </td>
-                        <td>
-                            <form:input path="email" type="email" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <form:label path="password">User Password</form:label>
-                        </td>
-                        <td>
-                            <form:password path="password" />
-                        </td>
-                    </tr>
-            </table>
-            <input type="submit" value="Add User">
-        </form:form>
+        <div align="center">
+            <h1>Add User</h1>
+            <form:form modelAttribute="user">
+                <table>
+                        <form:errors path="" element="td" />
+                        <tr>
+                            <td>
+                                <form:label path="name">User Name</form:label>
+                            </td>
+                            <td>
+                                <form:input path="name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form:label path="email">User Email</form:label>
+                            </td>
+                            <td>
+                                <form:input path="email" type="email" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form:label path="password">User Password</form:label>
+                            </td>
+                            <td>
+                                <form:password path="password" />
+                            </td>
+                        </tr>
+                </table>
+                <input type="submit" value="Add User">
+            </form:form>
+        </div>
     </body>
 </html>
